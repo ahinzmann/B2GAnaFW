@@ -1152,10 +1152,6 @@ pileupJetIdVars = (
       quantity = cms.untracked.string("userFloat('pileupJetIdfrac01')")
       ),
     cms.PSet(
-      tag = cms.untracked.string("pileupJetIdfrac01"),
-      quantity = cms.untracked.string("userFloat('pileupJetIdfrac01')")
-      ),
-    cms.PSet(
       tag = cms.untracked.string("pileupJetIdfrac02"),
       quantity = cms.untracked.string("userFloat('pileupJetIdfrac02')")
       ),

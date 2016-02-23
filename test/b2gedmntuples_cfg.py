@@ -411,13 +411,13 @@ process.jetUserData = cms.EDProducer(
     )
 
 process.load("RecoJets.JetProducers.PileupJetID_cfi")
-process.pileupJetId.jets=cms.InputTag(jLabel)
+process.pileupJetId.jets=cms.InputTag("jetUserData")
 process.pileupJetId.inputIsCorrected=True
 process.pileupJetId.applyJec=False
 process.pileupJetId.vertexes=cms.InputTag("offlineSlimmedPrimaryVertices")
-process.pileupJetIdUserData = cms.EDProducer(
+process.jetUserDataPuId = cms.EDProducer(
     'PileupJetIdUserData',
-    jetLabel  = cms.InputTag(jLabel),
+    jetLabel  = cms.InputTag("jetUserData"),
     pileupJetId = cms.InputTag("pileupJetId"),
     )
 

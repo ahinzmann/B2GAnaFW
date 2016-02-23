@@ -1120,10 +1120,6 @@ pileupJetIdVars = (
       quantity = cms.untracked.string("userFloat('pileupJetIdRMS')")
       ),
     cms.PSet(
-      tag = cms.untracked.string("pileupJetIdRMS"),
-      quantity = cms.untracked.string("userFloat('pileupJetIdRMS')")
-      ),
-    cms.PSet(
       tag = cms.untracked.string("pileupJetIdbeta"),
       quantity = cms.untracked.string("userFloat('pileupJetIdbeta')")
       ),
@@ -1216,10 +1212,10 @@ jetsAK4.variables += qglVars
 jetsAK4.variables += pileupJetIdVars
 jetsAK4.variables += jetVarsForSys
 jetsAK4.prefix = cms.untracked.string("jetAK4")
-jetsAK4.src = cms.InputTag("jetUserData")
+jetsAK4.src = cms.InputTag("jetUserDataPuId")
 #jetsAK4.src = cms.InputTag("jetUserDataQGL")
 jetKeysAK4 = copy.deepcopy( jetKeys )
-jetKeysAK4.jetLabel = cms.InputTag("jetUserData")
+jetKeysAK4.jetLabel = cms.InputTag("jetUserDataPuId")
 #jetKeysAK4.jetLabel = cms.InputTag("jetUserDataQGL")
 
 ###jets no HF if needed

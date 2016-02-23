@@ -30,15 +30,13 @@ public:
   
 private:
   void produce( edm::Event &, const edm::EventSetup & );
-  edm::EDGetTokenT<std::vector<pat::Jet> >     jetToken_;
-  
-  InputTag jLabel_, pileupJetIdToken_; 
-  
+  edm::EDGetTokenT<std::vector<pat::Jet> > jToken_;
+  edm::EDGetTokenT<edm::ValueMap<StoredPileupJetIdentifier> > pileupJetIdToken_;
 };
 
 PileupJetIdUserData::PileupJetIdUserData(const edm::ParameterSet& iConfig) :
-  jLabel_             (iConfig.getParameter<edm::InputTag>("jetLabel")),
-  pileupJetIdToken_             (iConfig.getParameter<edm::InputTag>("pileupJetId"))
+  jToken_             (consumes<std::vector<pat::Jet> > ( iConfig.getParameter<edm::InputTag>("jetLabel") )),
+  pileupJetIdToken_             (consumes<edm::ValueMap<StoredPileupJetIdentifier> > ( iConfig.getParameter<edm::InputTag>("pileupJetId") ))
 {
    produces<vector<pat::Jet> >();
 }
@@ -46,15 +44,13 @@ PileupJetIdUserData::PileupJetIdUserData(const edm::ParameterSet& iConfig) :
   
 void PileupJetIdUserData::produce( edm::Event& iEvent, const edm::EventSetup& iSetup) {
 
-
   edm::Handle<std::vector<pat::Jet> > jetHandle;
-  edm::Handle<edm::View<pat::Jet> > jets;
-  iEvent.getByLabel(jLabel_, jetHandle);
-  iEvent.getByLabel(jLabel_, jets);
-  auto_ptr<std::vector<pat::Jet> > jetColl( new std::vector<pat::Jet> (*jetHandle) );
+  iEvent.getByToken(jToken_, jetHandle);
 
-  edm::Handle<edm::ValueMap<StoredPileupJetIdentifier>> pileupJetIdHandle; 
-  iEvent.getByLabel(pileupJetIdToken_, pileupJetIdHandle);
+  auto_ptr<vector<pat::Jet> > jetColl( new vector<pat::Jet> (*jetHandle) );
+
+  edm::Handle<edm::ValueMap<StoredPileupJetIdentifier> > pileupJetIdHandle; 
+  iEvent.getByToken(pileupJetIdToken_, pileupJetIdHandle);
 
   for (size_t i = 0; i< jetColl->size(); i++){
     pat::Jet & jet = (*jetColl)[i];

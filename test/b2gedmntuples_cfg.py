@@ -410,6 +410,16 @@ process.jetUserData = cms.EDProducer(
     hlt2reco_deltaRmax = cms.double(0.2),
     )
 
+process.load("RecoJets.JetProducers.PileupJetID_cfi")
+process.pileupJetId.jets=cms.InputTag(jLabel)
+process.pileupJetId.inputIsCorrected=True
+process.pileupJetId.applyJec=False
+process.pileupJetId.vertexes=cms.InputTag("offlineSlimmedPrimaryVertices")
+process.pileupJetIdUserData = cms.EDProducer(
+    'PileupJetIdUserData',
+    jetLabel  = cms.InputTag(jLabel),
+    pileupJetId = cms.InputTag("pileupJetId"),
+    )
 
 '''
 process.jetUserDataNoHF = cms.EDProducer(

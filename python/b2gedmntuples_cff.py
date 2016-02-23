@@ -1114,10 +1114,106 @@ qglVars = (
       ),
 )
 
+pileupJetIdVars = (
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdRMS"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdRMS')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdRMS"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdRMS')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdbeta"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdbeta')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdbetaClassic"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdbetaClassic')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdbetaStar"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdbetaStar')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdbetaStarClassic"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdbetaStarClassic')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIddR2Mean"),
+      quantity = cms.untracked.string("userFloat('pileupJetIddR2Mean')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIddRMean"),
+      quantity = cms.untracked.string("userFloat('pileupJetIddRMean')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIddZ"),
+      quantity = cms.untracked.string("userFloat('pileupJetIddZ')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdfrac01"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdfrac01')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdfrac01"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdfrac01')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdfrac02"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdfrac02')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdfrac03"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdfrac03')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdfrac04"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdfrac04')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdjetR"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdjetR')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdjetRchg"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdjetRchg')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdmajW"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdmajW')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdminW"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdminW')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdnCharged"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdnCharged')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdnNeutrals"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdnNeutrals')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdnParticles"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdnParticles')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdptD"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdptD')")
+      ),
+    cms.PSet(
+      tag = cms.untracked.string("pileupJetIdpull"),
+      quantity = cms.untracked.string("userFloat('pileupJetIdpull')")
+      ),
+)
+
 ###jets
 jetsAK4 = copy.deepcopy(basic)
 jetsAK4.variables += jetVars
 jetsAK4.variables += qglVars
+jetsAK4.variables += pileupJetIdVars
 jetsAK4.variables += jetVarsForSys
 jetsAK4.prefix = cms.untracked.string("jetAK4")
 jetsAK4.src = cms.InputTag("jetUserData")
